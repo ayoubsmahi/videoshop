@@ -7,8 +7,32 @@
     </head>
     <body>
         <section layout:fragment="content">
-            <h2 th:text="#{home.welcome}">Willkommen zu unserem Videoshop.</h2>
-            <p sec:authorize="isAuthenticated()" th:text="${'Hallo ' + #authentication?.name}">Hallo Nutzer</p>
+            <div class="welcome-panel">
+                <div class="welcome-copy">
+                    <p class="welcome-tag" th:text="#{home.tagline}">Movie night starts here</p>
+                    <h2 th:text="#{home.welcome}">Welcome to our Videoshop.</h2>
+                    <p class="welcome-text" th:text="#{home.description}">
+                        Browse our DVD and Blu-ray catalog and find your next favorite film in just a few clicks.
+                    </p>
+                    <p class="welcome-user" sec:authorize="isAuthenticated()" th:text="${'Hallo ' + #authentication?.name + '!'}">
+                        Hallo Nutzer!
+                    </p>
+                    <div class="welcome-actions">
+                        <a class="ui large button primary" th:href="@{/dvds}" th:text="#{nav.dvdCatalog}">DVD Catalog</a>
+                        <a class="ui large basic button" th:href="@{/blurays}" th:text="#{nav.blurayCatalog}">BluRay Catalog</a>
+                    </div>
+                </div>
+                <div class="welcome-highlights">
+                    <div class="highlight-card">
+                        <strong th:text="#{home.highlight.catalogTitle}">Wide selection</strong>
+                        <p th:text="#{home.highlight.catalogText}">Discover classics and modern favorites from both catalogs.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <strong th:text="#{home.highlight.cartTitle}">Quick shopping cart</strong>
+                        <p th:text="#{home.highlight.cartText}">Add titles to your basket and complete an order in a few steps.</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </body>
 </html>
