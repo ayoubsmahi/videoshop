@@ -53,7 +53,7 @@ class RegistrationForm {
 	public RegistrationForm(String name, String password, String address) {
 
 		this.name = name;
-		this.password = password;
+		this.password = psw;
 		this.address = address;
 	}
 
@@ -62,7 +62,7 @@ class RegistrationForm {
 	}
 
 	public String getPassword() {
-		return password;
+		return psw;
 	}
 
 	public String getAddress() {
